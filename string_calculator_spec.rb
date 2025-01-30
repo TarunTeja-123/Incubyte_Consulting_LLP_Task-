@@ -7,7 +7,7 @@ describe StringCalculator do
       expect(calculator.add("")).to eq(0)
     end
   end
-  
+
   it 'returns the number itself for a single number' do
     calculator = StringCalculator.new
     result = calculator.add("1")
@@ -19,4 +19,12 @@ describe StringCalculator do
     result = calculator.add("1,5")
     expect(result).to eq(6)
   end
+
+  it 'handles new line between numbers' do
+    calculator = StringCalculator.new
+    result = calculator.add("1\n2,3")
+    expect(result).to eq(6)
+  end
+
+  
 end
